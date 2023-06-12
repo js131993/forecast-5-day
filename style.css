@@ -1,0 +1,12 @@
+#forecast {
+    display: flex;
+    /* gap: 15px; */
+    justify-content: space-between;
+    width: 75vw;
+    margin-top: 25px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
