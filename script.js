@@ -49,22 +49,18 @@ function addForecastCard(city, date, temp, wind, humidity, weather, icon) {
 
 function searchCity() {
   const city = document.getElementById("cityInput").value;
-  // value-->getting the value of city input element
   fetch(
     `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
-    // plugging in the city value....
   )
     .then((response) => response.json())
     .then((data) => {
-      // let location = data[0];
-      // grabbing first object from the list[0], represents the location...
-      let lat = data[0].lat;
-      let lon = data[0].lon;
-// .then is a function that takes in another function....
+      let location = data[0];
+      let lat = location.lat;
+      let lon = location.lon;
+
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
       )
-      // now that we have lat and long... now we can find for the next five days.
         .then((response) => response.json())
         .then((data) => {
           todayForecastElement.innerHTML = "";
@@ -75,7 +71,6 @@ function searchCity() {
           let date = data.dt_txt;
           let icon = data.weather[0].icon;
           const node = addForecastCard(city, "Today", temp, wind, humidity, weather, icon);
-          
           todayForecastElement.innerHTML += node;
         })
 
