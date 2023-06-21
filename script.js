@@ -50,8 +50,9 @@ function addForecastCard(city, date, temp, wind, humidity, weather, icon) {
 function searchCity() {
   const city = document.getElementById("cityInput").value;
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
   )
+  // http is unsecured....https is secured traffic
     .then((response) => response.json())
     .then((data) => {
       let location = data[0];
@@ -104,6 +105,8 @@ function searchCity() {
         });
     });
 }
+
+//BELOW IS AN EXAMPLE OF API WORKED ON DURING TUTORING(NOTES)
 //check to make sure city is already there......function.....
 
 // function searchCity() {
