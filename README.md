@@ -17,7 +17,7 @@ Site: https://js131993.github.io/forecast-5-day/
 Repo: https://github.com/js131993/forecast-5-day
 
 ## Visual of Site
-
+![Alt text](image.png)
 
 ## Installation
 1. For weather API https://openweathermap.org/forecast5
